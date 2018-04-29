@@ -99,19 +99,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <p class="">
-                                    <h3 class="left">Visi Lem 2017-2018</h3>
-                                    <br>
-                                    <p class="left">
-                                        “Optimalisasi peran dan fungsi Lembaga Eksekutif Mahasiswa Fakultas Psikologi dan Ilmu Sosial Budaya Universitas Islam Indonesia sebagai upaya membentuk karakter mahasiswa insan ulil albab yang mampu memberikan rahmat bagi seluruh alam semesta”.
-                                    </p>
-                                    <br>
-                                    <br>
-
-                                    <h3 class="left"> Misi Lem 2017-2018</h3> <br>
-                                    <p class="left">
-                                        1. Mengoptimalkan peran dan fungsi lembaga kemahasiswaan. <br> 2. Internalisasi nilai-nilai islam pada Mahasiswa FPSB UII dalam berorganisasi.<br> 3. Mewujudkan LEM FPSB UII sebagai wadah organisasi yang harmonis, humanis, dan progresif.<br> 4. Mempererat jalinan silaturahmi dan koordinasi antar Lembaga kemahasiswaan di lingkungan Fakultas Psikologi dan Ilmu Sosial Budaya Universitas Islam Indonesia guna menciptakan iklim yang harmonis di antara lembaga. <br> 5. Meningkatkan sistem pengelolaan sumber daya manusia dalam Lembaga Eksekutif Mahasiswa Fakultas Psikologi dan Ilmu Sosial Budaya Universitas Islam Indonesia. <br> 6. Mengembangkan pergerakan mahasiswa FPSB UII dibidang sosial dan lingkungan. <br> 7. Penguatan bergaining posisition Lembaga Eksekutif Mahasiswa FPSB UII terhadap Dekanat FPSB UII <br> 8. Memperteguh eksistensi Lembaga Eksekutif Mahasiswa Fakultas Psikologi dan Ilmu Sosial Budaya Universitas Islam Indonesia dengan memperluas jaringan dan kerjasama dengan pihak luar.<br>
-                                    </p>
+                                <article class="left">
+                                    <?php echo $data->konten; ?>
+                                </article>
                             </div>
                         </div>
                     </div>

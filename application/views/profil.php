@@ -98,14 +98,9 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <p class="">
-                                    <h3 class="left">Ringkasan Program Kerja LEM FPSB periode 2017-2018 </h3>
-                                    <br>
-                                    <p class="left">
-                                        1. DEPARTEMEN JARINGAN MEDIA DAN INFORMASI <br> Secara umum bergerak dalam media strategy dan Content creative guna menyediakan dan menciptakan wajah lembaga fakultas yang lebih fresh untuk membranding lembaga sebagai sarana mahasiswa
-                                        <br><br> 2. DEPARTEMEN SOSIAL DAN LINGKUNGAN <br> Sosling merupakan sebuah departemen baru dalam kepengurusan tahun ini, sesuai dengan tagline tahun ini yaitu #BersatuUntukSemesta , yang menyuguhkan beberapa kegiatan sosial dan lingkungan , serta sosling juga membantu masyarakat sekitar dalam kegiatan bencana alam dan yang lainya. <br> <br> 3. DEPARTEMEN MINAT BAKAT <br> Untuk periode ini departemen minat dan bakat, tetap terus berusaha untuk mengulik minat dan bakat dari mahasiswa FPSB dengan mengadakan survei dan membuat UKM baru yang harapanyan dapat menjadi wadah dari mahasiswa FPSB <br> <br> 4. DEPARTEMEN KAJIAN DAN DAKWAH <br> Sesuai dengan namanya, Kajian dan dakwah bergerak dalam mengkaji isu kontemprorer serta menjadikan sarana dakwah sebagai internalisasi nilai-nilai islam kepada mahasiswa FPSB <br> <br> 5. DEPARTEMEN PENGEMBANGAN ORGANISASI <br> Pengembagan Organisasi merupakan departemen yang bertugas dalam internal pengurus Lembaga yang dimana menciptakan harmonisasi dan sinergitas dengan HMJ, dan dekanat yang berada di lingkup FPSB.
-
-                                    </p>
+                                 <article class="left">
+                                    <?php echo $data->konten; ?>
+                                </article>
                             </div>
                         </div>
                     </div>
