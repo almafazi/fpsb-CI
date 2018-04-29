@@ -15,6 +15,11 @@ class Home extends CI_Controller {
 	}
     public function route($uri)
 	{
+        if($uri == 'authorize') {
+            if($this->admin_model->is_LoggedIn()) {
+                redirect('admin/dashboard');
+            }
+        }
         $data = array(
             'data' => $this->admin_model->getRowByRole($uri,'page')
         );

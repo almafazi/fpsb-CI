@@ -19,7 +19,8 @@ class Admin_model extends CI_Model
 
     public function is_LoggedIn()
     {
-        if(!isset($_SESSION['logged_in'])) {
+        $this->load->library('session');
+        if(!$this->session->userdata('logged_in')) {
             return false;
         }
 

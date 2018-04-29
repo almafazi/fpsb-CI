@@ -7,6 +7,7 @@ class Admin extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('admin_model');
+        $this->load->library('session');
     }
 
 	public function index()
@@ -70,8 +71,14 @@ class Admin extends CI_Controller {
         } else {
             $user = $this->admin_model->get_user('username', $this->input->post('username'));
 
-            $_SESSION['user_id']   = $user['id'];
-            $_SESSION['logged_in'] = true;
+            $newdata = array(
+               'user_id'  => $user['id'],
+               'logged_in' => TRUE
+            );
+            $this->session->sess_expire_on_close = TRUE;
+            $this->session->sess_expiration = 1800;
+            $this->session->set_userdata($newdata);
+
 
             redirect('admin/dashboard');
         }
@@ -101,7 +108,8 @@ class Admin extends CI_Controller {
 
     public function logout()
     {
-        unset($_SESSION['user_id'], $_SESSION['logged_in']);
+        $this->session->unset_userdata('logged_in');
+        $this->session->unset_userdata('user_id');
         redirect('authorize');
     }
 }
