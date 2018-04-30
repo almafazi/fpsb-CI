@@ -122,6 +122,18 @@
             </span>
           </a>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-newspaper-o"></i> <span>Berita</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url(); ?>admin/berita/view"><i class="fa fa-circle-o"></i> List Berita</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/berita/add"><i class="fa fa-circle-o"></i> Tambah Berita</a></li>
+          </ul>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Profil | Admin Panel</title>
+  <title>Tambah Berita | Admin Panel</title>
   <link rel="shortcut icon" href="<?php echo base_url(); ?>images/logo/favicon.jpg">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -18,9 +18,8 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/dist/css/skins/_all-skins.min.css">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
-
+  <!-- Bootstrap Checkbox -->
+  <link href="<?php echo base_url(); ?>assets/admin/plugins/bootstrap-toggle/bootstrap-toggle.min.css" rel="stylesheet">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -104,7 +103,7 @@
             <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
           </ul>
         </li>
-        <li class="">
+        <li class="active">
           <a href="<?php echo base_url(); ?>admin/visi_misi/view">
             <i class="fa fa-edit"></i>
             <span>Visi & Misi</span>
@@ -113,7 +112,7 @@
             </span>
           </a>
         </li>
-        <li class="active">
+        <li class="">
           <a href="<?php echo base_url(); ?>admin/profil/view">
             <i class="fa fa-user"></i>
             <span>Profil</span>
@@ -122,7 +121,7 @@
             </span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="active treeview">
           <a href="#">
             <i class="fa fa-newspaper-o"></i> <span>Berita</span>
             <span class="pull-right-container">
@@ -131,7 +130,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url(); ?>admin/berita/view"><i class="fa fa-circle-o"></i> List Berita</a></li>
-            <li><a href="<?php echo base_url(); ?>admin/berita/add"><i class="fa fa-circle-o"></i> Tambah Berita</a></li>
+            <li class="active"><a href="<?php echo base_url(); ?>admin/berita/add"><i class="fa fa-circle-o"></i> Tambah Berita</a></li>
           </ul>
         </li>
       </ul>
@@ -144,12 +143,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Profil
-        <small>Halaman Konten Profil</small>
+        Berita
+        <small>Halaman Konten Berita</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?php echo $admin_url; ?>"><i class="fa fa-dashboard"></i> Admin</a></li>
-        <li class="active">Profil</li>
+        <li class="active">Berita</li>
       </ol>
     </section>
 
@@ -161,12 +160,12 @@
 
               <form id="form">
             <div class="box-header">
-              <h3 class="box-title">Profil
-                <small>Masukkan Konten Profil</small>
+              <h3 class="box-title">Berita
+                <small>Masukkan Konten Berita</small>
               </h3>
               <!-- tools box -->
               <div class="pull-right box-tools">
-                  <button type="button" id="simpan" class="btn btn-success btn-sm" data-widget="collapse" data-toggle="tooltip" title="Simpan"><i class="fa fa-save"></i>  &nbsp;<b>Simpan Perubahan</b> </button>&nbsp;&nbsp;&nbsp;
+                  <button type="button" id="simpan" class="btn btn-success btn-sm" data-widget="collapse" data-toggle="tooltip" title="Tambah Berita"><i class="fa fa-save"></i>  &nbsp;<b>Tambah Berita</b> </button>&nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
                   <i class="fa fa-minus"></i></button>
@@ -180,11 +179,13 @@
             <div class="box-body pad">
                    <div class="form-group">
                       <label>Judul</label>
-                      <input class="form-control" placeholder="Masukkan Judul" name="judul" id="judul" value="<?php echo $record->judul; ?>" type="text">
+                      <input class="form-control" placeholder="Masukkan Judul" name="judul" id="judul" value="" type="text">
                     </div>
+                    <div class="form-group">
+                        <input checked id="status" type="checkbox">
+                   </div>
                     <label>Konten</label>
                     <textarea id="konten" rows="10" cols="80">
-                                            <?php echo $record->konten; ?>
                     </textarea>
 
             </div>
@@ -415,31 +416,34 @@
 <script src="<?php echo base_url(); ?>assets/admin/dist/js/demo.js"></script>
 <!-- CK Editor -->
 <script src="<?php echo base_url(); ?>assets/admin/bower_components/ckeditor/ckeditor.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="<?php echo base_url(); ?>assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- Bootstrap Toogle -->
+<script src="<?php echo base_url(); ?>assets/admin/plugins/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+
 <script>
 $("#simpan").on("click", function() {
-    $("#simpan").html("<i class='fa fa-refresh fa-spin'></i><b> &nbsp; Menyimpan...</b>");
+    $("#simpan").html("<i class='fa fa-refresh fa-spin'></i><b> &nbsp; Menambah Berita...</b>");
     var konten = CKEDITOR.instances.konten.getData();
     var judul = $("#judul").val();
+    var status = $("#status").val();
     if(konten == '' || judul == '') {
         alert('Judul atau Isi Tidak Boleh Kosong!');
-        $("#simpan").html("<i class='fa fa-save'></i>  &nbsp;<b>Simpan Perubahan</b>");
+        $("#simpan").html("<i class='fa fa-save'></i>  &nbsp;<b>Tambah Berita</b>");
     } else {
     $.ajax({
-            url: "<?php echo base_url(); ?>admin/profil/save",
+            url: "<?php echo base_url(); ?>admin/berita/save",
             type: "POST",
             data: {
                 'konten' : konten,
-                'judul'  : judul
+                'judul'  : judul,
+                'status' : status
             },
             success: function(a) {
                 if(a == 'success') {
                     setTimeout(function() {
-                         $("#simpan").html("<i class='fa fa-check'></i> <b>Simpan Sukses</b>");}, 1200);
+                         $("#simpan").html("<i class='fa fa-check'></i> <b>Tambah Berita Sukses</b>");}, 1200);
 
                     setTimeout(function() {
-                        window.location.href = '<?php echo base_url(); ?>admin/profil/view?status=success&token=<?php echo rand(1,2) ?>'; }, 2500);
+                        window.location.href = '<?php echo base_url(); ?>admin/berita/view?status=success&token=<?php echo rand(1,2) ?>'; }, 2500);
                 } else {
                     alert(a);
                     location.reload();
@@ -454,6 +458,20 @@ $("#simpan").on("click", function() {
   $(function () {
     CKEDITOR.replace('konten');
     CKEDITOR.config.height = 500;
+
+    $('#status').bootstrapToggle({
+      on: 'publish',
+      off: 'hold'
+    });
+
+    $('#status').change(function() {
+       if($(this).prop("checked") == true){
+          $(this).val("publish");
+       } else {
+          $(this).val("hold");
+       }
+    });
+
   });
 </script>
 </body>

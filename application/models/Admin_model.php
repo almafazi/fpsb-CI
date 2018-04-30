@@ -52,10 +52,48 @@ class Admin_model extends CI_Model
             return NULL;
     }
 
+    public function getRowById($id, $table) {
+            $data = NULL;
+
+            $this->db->select('*')
+            ->from($table)
+            ->where('id', $id);
+
+            $query = $this->db->get();
+            if ($query->num_rows() > 0) {
+               return $query->row();
+            }
+
+            return NULL;
+    }
+
+    public function getAll($table){
+        $query = $this->db->select('*')->from($table)->get();
+
+        $result = $query->result();
+        $query->free_result(); //freeup memory
+
+        return $result;
+    }
+
     public function updateByRole($role,$data,$table){
 		$this->db->where('role',$role);
 		$this->db->update($table,$data);
 	}
+
+    public function insert($table,$data){
+		$query = $this->db->insert($table,$data);
+	}
+
+    public function update($table,$id,$data){
+        $this->db->where('id', $id);
+        $this->db->update($table,$data);
+	}
+
+    public function deleteById($table,$id) {
+        $this->db->where('id', $id);
+        return $this->db->delete($table);
+    }
 
 
 }

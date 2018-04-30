@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Profil | Admin Panel</title>
+  <title>Berita | Admin Panel</title>
   <link rel="shortcut icon" href="<?php echo base_url(); ?>images/logo/favicon.jpg">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -13,13 +13,13 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/dist/css/skins/_all-skins.min.css">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -113,7 +113,7 @@
             </span>
           </a>
         </li>
-        <li class="active">
+        <li class="">
           <a href="<?php echo base_url(); ?>admin/profil/view">
             <i class="fa fa-user"></i>
             <span>Profil</span>
@@ -122,7 +122,7 @@
             </span>
           </a>
         </li>
-        <li class="treeview">
+        <li class="active treeview">
           <a href="#">
             <i class="fa fa-newspaper-o"></i> <span>Berita</span>
             <span class="pull-right-container">
@@ -130,7 +130,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url(); ?>admin/berita/view"><i class="fa fa-circle-o"></i> List Berita</a></li>
+            <li class="active"><a href="<?php echo base_url(); ?>admin/berita/view"><i class="fa fa-circle-o"></i> List Berita</a></li>
             <li><a href="<?php echo base_url(); ?>admin/berita/add"><i class="fa fa-circle-o"></i> Tambah Berita</a></li>
           </ul>
         </li>
@@ -144,60 +144,63 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Profil
-        <small>Halaman Konten Profil</small>
+        Berita
+        <small>Daftar Berita</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?php echo $admin_url; ?>"><i class="fa fa-dashboard"></i> Admin</a></li>
-        <li class="active">Profil</li>
+        <li class="active">Berita</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
       <div class="row">
-        <div class="col-md-12">
-          <div class="box box-info">
-
-              <form id="form">
+        <div class="col-xs-12">
+          <!-- /.box -->
+          <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Profil
-                <small>Masukkan Konten Profil</small>
-              </h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                  <button type="button" id="simpan" class="btn btn-success btn-sm" data-widget="collapse" data-toggle="tooltip" title="Simpan"><i class="fa fa-save"></i>  &nbsp;<b>Simpan Perubahan</b> </button>&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
-                        title="Collapse">
-                  <i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip"
-                        title="Remove">
-                  <i class="fa fa-times"></i></button>
-              </div>
-              <!-- /. tools -->
+              <h3 class="box-title">List Berita</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body pad">
-                   <div class="form-group">
-                      <label>Judul</label>
-                      <input class="form-control" placeholder="Masukkan Judul" name="judul" id="judul" value="<?php echo $record->judul; ?>" type="text">
-                    </div>
-                    <label>Konten</label>
-                    <textarea id="konten" rows="10" cols="80">
-                                            <?php echo $record->konten; ?>
-                    </textarea>
-
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>NO</th>
+                  <th>Judul</th>
+                  <th>Konten</th>
+                  <th>Status</th>
+                  <th>Dibuat</th>
+                  <th>Diperbarui</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php $i=1; foreach($record as $row): ?>
+                    <tr>
+                      <td><?php echo $i; ?></td>
+                      <td><?php echo substr($row->judul,0,20); ?>...</td>
+                      <td><?php echo strip_tags(substr($row->konten,0,50)); ?>...</td>
+                      <td><?php echo ($row->status == 'publish') ? '<span class="label label-success">Approved</span>' : '<span class="label label-warning">Hold</span>'?></td>
+                      <td><?php echo date('d-m-Y h:i a', strtotime($row->created_at)); ?></td>
+                      <td><?php echo date('d-m-Y h:i a', strtotime($row->updated_at)); ?></td>
+                      <td><a class="btn btn-xs btn-success" href="<?php echo base_url(); ?>admin/berita/edit/<?php echo $row->id; ?>"><span class="fa fa-edit"></span></a> &nbsp;&nbsp; <a onclick="return deleteById(<?php echo $row->id; ?>);" class="btn btn-xs btn-danger" href="<?php echo base_url(); ?>admin/berita/delete/<?php echo $row->id; ?>"><span class="fa fa-trash"></span></a></td>
+                    </tr>
+                <?php $i++; endforeach; ?>
+                </tbody>
+              </table>
             </div>
-            </form>
+            <!-- /.box-body -->
           </div>
+          <!-- /.box -->
         </div>
-        <!-- /.col-->
+        <!-- /.col -->
       </div>
-      <!-- ./row -->
+      <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>
-
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
@@ -407,53 +410,39 @@
 <script src="<?php echo base_url(); ?>assets/admin/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url(); ?>assets/admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url(); ?>assets/admin/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="<?php echo base_url(); ?>assets/admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url(); ?>assets/admin/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/admin/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assets/admin/dist/js/demo.js"></script>
-<!-- CK Editor -->
-<script src="<?php echo base_url(); ?>assets/admin/bower_components/ckeditor/ckeditor.js"></script>
-<!-- Bootstrap WYSIHTML5 -->
-<script src="<?php echo base_url(); ?>assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- page script -->
 <script>
-$("#simpan").on("click", function() {
-    $("#simpan").html("<i class='fa fa-refresh fa-spin'></i><b> &nbsp; Menyimpan...</b>");
-    var konten = CKEDITOR.instances.konten.getData();
-    var judul = $("#judul").val();
-    if(konten == '' || judul == '') {
-        alert('Judul atau Isi Tidak Boleh Kosong!');
-        $("#simpan").html("<i class='fa fa-save'></i>  &nbsp;<b>Simpan Perubahan</b>");
+  function deleteById(id) {
+    var conf = confirm('Yakin Hapus?');
+    var url = $(this).prop("href");
+    if(conf) {
+        window.location.href = url;
     } else {
-    $.ajax({
-            url: "<?php echo base_url(); ?>admin/profil/save",
-            type: "POST",
-            data: {
-                'konten' : konten,
-                'judul'  : judul
-            },
-            success: function(a) {
-                if(a == 'success') {
-                    setTimeout(function() {
-                         $("#simpan").html("<i class='fa fa-check'></i> <b>Simpan Sukses</b>");}, 1200);
-
-                    setTimeout(function() {
-                        window.location.href = '<?php echo base_url(); ?>admin/profil/view?status=success&token=<?php echo rand(1,2) ?>'; }, 2500);
-                } else {
-                    alert(a);
-                    location.reload();
-                }
-            }
-        });
+        return false;
     }
-});
+  }
 
-</script>
-<script>
   $(function () {
-    CKEDITOR.replace('konten');
-    CKEDITOR.config.height = 500;
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
   });
 </script>
 </body>

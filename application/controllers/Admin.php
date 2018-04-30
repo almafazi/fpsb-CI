@@ -18,29 +18,81 @@ class Admin extends CI_Controller {
 		redirect('admin/dashboard');
 	}
 
-    public function route($page='', $action='')
+    public function route($page='', $action='', $id='')
 	{
-        if(!$this->admin_model->is_LoggedIn()) {
-            redirect('authorize');
-        }
+        if(!$this->admin_model->is_LoggedIn()) redirect('authorize');
 
         $admin_url = base_url().'admin/dashboard';
 
-        if($action=='view') {
-            $data = $this->admin_model->getRowByRole($page,'page');
-            $data = array(
-                'record' => $data,
-                'admin_url' => $admin_url
-            );
-            $this->load->view('admin/'.$page, $data);
-        } else if ($action=='save') {
-            $update = array(
-                'judul' => $this->input->post('judul'),
-                'konten'=> $this->input->post('konten')
-            );
-            $this->admin_model->updateByRole($page,$update,'page');
-            echo 'success';
-        }
+        if($page == 'berita'):
+            if($action=='view'):
+                $data = array(
+                        'admin_url' => $admin_url,
+                        'record'    => $this->admin_model->getAll($page)
+                    );
+                $this->load->view('admin/'.$page.'/'.$action, $data);
+
+            elseif($action=='add'):
+                $data = array(
+                        'admin_url' => $admin_url
+                    );
+                    $this->load->view('admin/'.$page.'/'.$action, $data);
+            elseif($action=='save'):
+                $insert = array(
+                    'judul' => $this->input->post('judul'),
+                    'konten'=> $this->input->post('konten'),
+                    'status'=> $this->input->post('status')
+                );
+                $this->admin_model->insert($page,$insert);
+                echo 'success';
+
+            elseif($action=='edit'):
+                $data = array(
+                        'admin_url' => $admin_url,
+                        'record'    => $this->admin_model->getRowById($id,$page),
+                        'id'        => $id
+                    );
+
+                $this->load->view('admin/'.$page.'/'.$action, $data);
+
+            elseif($action=='edit_save'):
+
+                 $update = array(
+                    'judul' => $this->input->post('judul'),
+                    'konten'=> $this->input->post('konten'),
+                    'status'=> $this->input->post('status'),
+                    'id'    => $this->input->post('id')
+                );
+
+                $this->admin_model->update($page,$this->input->post('id'),$update);
+                echo 'success';
+
+            elseif ($action=='delete'):
+                $this->admin_model->deleteById($page,$id);
+                redirect(base_url().'admin/'.$page.'/view');
+            endif;
+        else:
+
+            if($action=='view'):
+
+                $data = $this->admin_model->getRowByRole($page,'page');
+                $data = array(
+                    'record' => $data,
+                    'admin_url' => $admin_url
+                );
+                $this->load->view('admin/'.$page, $data);
+
+            elseif ($action=='save'):
+
+                $update = array(
+                    'judul' => $this->input->post('judul'),
+                    'konten'=> $this->input->post('konten')
+                );
+                $this->admin_model->updateByRole($page,$update,'page');
+                echo 'success';
+
+            endif;
+        endif;
 	}
 
     public function dashboard()

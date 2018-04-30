@@ -120,11 +120,12 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="container">
+        <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="mb-4 text-Black text-center">Our Team</h1>
+                    <div class="col-md-12 text-center">
+                        <h2 class="title">Our Team</h2>
                     </div>
                 </div>
                 <div class="row">
@@ -166,11 +167,47 @@
 
                 </div>
             </div>
+
+        <div class="container">
+          <div class="section section-contacts">
+           <div class="row">
+                     <div class="col-md-12 text-center">
+                        <h2 class="title">Berita</h2>
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-md-12">
+                <div id="article">
+                <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. […]</p>
+                 <p class="small pull-left" ><span class="fa fa-calendar"></span> 18 Ocak 2017</p><p class="small" >&nbsp;&nbsp;&nbsp;<span class="fa fa-clock-o"></span> 18:00 </p>
+                <hr/>
+                </div>
+                <div id="article">
+                <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. […]</p>
+                <p class="small pull-left" ><span class="fa fa-calendar"></span> 18 Ocak 2017</p><p class="small" >&nbsp;&nbsp;&nbsp;<span class="fa fa-clock-o"></span> 18:00 </p>
+                <hr/>
+                </div>
+                <div id="article">
+                <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. […]</p>
+                 <p class="small pull-left" ><span class="fa fa-calendar"></span> 18 Ocak 2017<p class="small" >&nbsp;&nbsp;&nbsp;<span class="fa fa-clock-o"></span> 18:00 </p>
+                <hr/>
+                </div>
+                </div>
+            </div>
+            <div class="row">
+                     <div class="col-md-12 text-center">
+            <a href="berita" class="btn btn-danger" > Berita Selengkapnya</a>
+                </div>
+            </div>
         </div>
-        <div class="section section-contacts">
+        </div>
+        <div class="container">
             <div class="row">
                 <div class="col-md-8 ml-auto mr-auto">
-                    <h2 class="text-center title">Korak Saran</h2>
+                    <h2 class="text-center title">Kotak Saran</h2>
                     <form class="contact-form">
                         <div class="row">
                             <div class="col-md-6">
@@ -200,8 +237,7 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
+        </div></div>
     <footer class="footer ">
         <div class="container">
             <div class="copyright pull-center">
