@@ -75,6 +75,7 @@ class Admin extends CI_Controller {
                'user_id'  => $user['id'],
                'logged_in' => TRUE
             );
+
             $this->session->sess_expire_on_close = TRUE;
             $this->session->sess_expiration = 1800;
             $this->session->set_userdata($newdata);
