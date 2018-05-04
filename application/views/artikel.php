@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-     <meta name="description" content="<?php echo substr(strip_tags($data->konten),0,190); ?>" />
+     <meta name="description" content="<?php echo substr(strip_tags(preg_replace("/\r|\n/", "",$data->konten)),0,190); ?>" />
     <meta name="author" content="LEM FPSB UII"/>
     <meta content="document" name="resource-type"/>
     <meta content="all" name="audience"/>
