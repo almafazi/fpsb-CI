@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Visi & Misi | Admin Panel</title>
+  <title>Grand Theme | Admin Panel</title>
   <link rel="shortcut icon" href="<?php echo base_url(); ?>images/logo/favicon.jpg">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -104,7 +104,7 @@
             <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
           </ul>
         </li>
-        <li class="active">
+        <li class="">
           <a href="<?php echo base_url(); ?>admin/visi_misi/view">
             <i class="fa fa-edit"></i>
             <span>Visi & Misi</span>
@@ -134,7 +134,7 @@
             <li><a href="<?php echo base_url(); ?>admin/berita/add"><i class="fa fa-circle-o"></i> Tambah Berita</a></li>
           </ul>
         </li>
-        <li class="treeview">
+        <li class="active treeview">
           <a href="#">
             <i class="fa fa-home"></i> <span>Home</span>
             <span class="pull-right-container">
@@ -144,7 +144,7 @@
           <ul class="treeview-menu">
             <li><a href="<?php echo base_url(); ?>admin/home_visi/view"><i class="fa fa-circle-o"></i> Visi</a></li>
             <li><a href="<?php echo base_url(); ?>admin/home_misi/view"><i class="fa fa-circle-o"></i> Misi</a></li>
-            <li><a href="<?php echo base_url(); ?>admin/home_grand_theme/view"><i class="fa fa-circle-o"></i> Grand Theme</a></li>
+            <li class="active"><a href="<?php echo base_url(); ?>admin/home_grand_theme/view"><i class="fa fa-circle-o"></i> Grand Theme</a></li>
           </ul>
         </li>
         <li class="">
@@ -166,12 +166,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Visi & Misi
-        <small>Halaman Konten Visi Misi</small>
+        Grand Theme
+        <small>Grand Theme</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?php echo $admin_url; ?>"><i class="fa fa-dashboard"></i> Admin</a></li>
-        <li class="active">Visi & Misi</li>
+        <li class="active">Misi</li>
       </ol>
     </section>
 
@@ -183,8 +183,8 @@
 
               <form id="form">
             <div class="box-header">
-              <h3 class="box-title">Visi & Misi
-                <small>Masukkan Konten Visi Misi</small>
+              <h3 class="box-title">Grand Theme
+                <small>Grand Theme</small>
               </h3>
               <!-- tools box -->
               <div class="pull-right box-tools">
@@ -449,7 +449,7 @@ $("#simpan").on("click", function() {
         $("#simpan").html("<i class='fa fa-save'></i>  &nbsp;<b>Simpan Perubahan</b>");
     } else {
     $.ajax({
-            url: "<?php echo base_url(); ?>admin/visi_misi/save",
+            url: "<?php echo base_url(); ?>admin/home_grand_theme/save",
             type: "POST",
             data: {
                 'konten' : konten,
@@ -461,7 +461,7 @@ $("#simpan").on("click", function() {
                          $("#simpan").html("<i class='fa fa-check'></i> <b>Simpan Sukses</b>");}, 1200);
 
                     setTimeout(function() {
-                        window.location.href = '<?php echo base_url(); ?>admin/visi_misi/view?status=success&token=<?php echo rand(1,2) ?>'; }, 2500);
+                        window.location.href = '<?php echo base_url(); ?>admin/home_grand_theme/view?status=success&token=<?php echo rand(1,2) ?>'; }, 2500);
                 } else {
                     alert(a);
                     location.reload();

@@ -134,6 +134,28 @@
             <li><a href="<?php echo base_url(); ?>admin/berita/add"><i class="fa fa-circle-o"></i> Tambah Berita</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-home"></i> <span>Home</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?php echo base_url(); ?>admin/home_visi/view"><i class="fa fa-circle-o"></i> Visi</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/home_misi/view"><i class="fa fa-circle-o"></i> Misi</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/home_grand_theme/view"><i class="fa fa-circle-o"></i> Grand Theme</a></li>
+          </ul>
+        </li>
+        <li class="">
+          <a href="<?php echo base_url(); ?>admin/ganti_password">
+            <i class="fa fa-key"></i>
+            <span>Ganti Password</span>
+            <span class="pull-right-container">
+              <i class="fa fa-circle-o text-red pull-right"></i>
+            </span>
+          </a>
+        </li>
       </ul>
     </section>
     <!-- /.sidebar -->

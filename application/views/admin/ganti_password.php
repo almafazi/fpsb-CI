@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Visi & Misi | Admin Panel</title>
+  <title>Ganti Password | Admin Panel</title>
   <link rel="shortcut icon" href="<?php echo base_url(); ?>images/logo/favicon.jpg">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -104,7 +104,7 @@
             <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
           </ul>
         </li>
-        <li class="active">
+        <li class="">
           <a href="<?php echo base_url(); ?>admin/visi_misi/view">
             <i class="fa fa-edit"></i>
             <span>Visi & Misi</span>
@@ -147,7 +147,7 @@
             <li><a href="<?php echo base_url(); ?>admin/home_grand_theme/view"><i class="fa fa-circle-o"></i> Grand Theme</a></li>
           </ul>
         </li>
-        <li class="">
+        <li class="active">
           <a href="<?php echo base_url(); ?>admin/ganti_password">
             <i class="fa fa-key"></i>
             <span>Ganti Password</span>
@@ -166,12 +166,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Visi & Misi
-        <small>Halaman Konten Visi Misi</small>
+        Ubah Password
+        <small>Halaman Ubah Password</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?php echo $admin_url; ?>"><i class="fa fa-dashboard"></i> Admin</a></li>
-        <li class="active">Visi & Misi</li>
+        <li class="active">Profil</li>
       </ol>
     </section>
 
@@ -181,14 +181,13 @@
         <div class="col-md-12">
           <div class="box box-info">
 
-              <form id="form">
+        <form id="form">
             <div class="box-header">
-              <h3 class="box-title">Visi & Misi
-                <small>Masukkan Konten Visi Misi</small>
+              <h3 class="box-title">Ubah Password
               </h3>
               <!-- tools box -->
               <div class="pull-right box-tools">
-                  <button type="button" id="simpan" class="btn btn-success btn-sm" data-widget="collapse" data-toggle="tooltip" title="Simpan"><i class="fa fa-save"></i>  &nbsp;<b>Simpan Perubahan</b> </button>&nbsp;&nbsp;&nbsp;
+                  <button type="button" id="simpan" class="btn btn-success btn-sm" data-widget="collapse" data-toggle="tooltip" title="Simpan"><i class="fa fa-save"></i>  &nbsp;<b>Simpan Password Baru</b> </button>&nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip"
                         title="Collapse">
                   <i class="fa fa-minus"></i></button>
@@ -199,17 +198,32 @@
               <!-- /. tools -->
             </div>
             <!-- /.box-header -->
-            <div class="box-body pad">
-                   <div class="form-group">
-                      <label>Judul</label>
-                      <input class="form-control" placeholder="Masukkan Judul" name="judul" id="judul" value="<?php echo $record->judul; ?>" type="text">
-                    </div>
-                    <label>Konten</label>
-                    <textarea id="konten" rows="10" cols="80">
-                                            <?php echo $record->konten; ?>
-                    </textarea>
-
-            </div>
+            <div class="box-body">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Ganti Username</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" id="username" placeholder="Kosongkan Jika Tidak Ingin Mengganti Username" type="text">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Password Lama</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" id="password" placeholder="Password Lama" type="password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Password Baru</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" id="password1" placeholder="Password Baru" type="password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">Konfirmasi Password</label>
+                  <div class="col-sm-10">
+                    <input class="form-control" id="password2" placeholder="Konfirmasi Password" type="password">
+                  </div>
+                </div>
+              </div>
             </form>
           </div>
         </div>
@@ -442,26 +456,30 @@
 <script>
 $("#simpan").on("click", function() {
     $("#simpan").html("<i class='fa fa-refresh fa-spin'></i><b> &nbsp; Menyimpan...</b>");
-    var konten = CKEDITOR.instances.konten.getData();
-    var judul = $("#judul").val();
-    if(konten == '' || judul == '') {
-        alert('Judul atau Isi Tidak Boleh Kosong!');
-        $("#simpan").html("<i class='fa fa-save'></i>  &nbsp;<b>Simpan Perubahan</b>");
+    var password = $("#password").val();
+    var password1 = $("#password1").val();
+    var password2 = $("#password2").val();
+    var username = $("#username").val();
+    if(password == '' || password1 == '' || password2 == '') {
+        alert('Password Tidak Boleh Kosong!');
+        $("#simpan").html("<i class='fa fa-save'></i>  &nbsp;<b>Simpan Password</b>");
     } else {
     $.ajax({
-            url: "<?php echo base_url(); ?>admin/visi_misi/save",
+            url: "<?php echo base_url(); ?>admin/ganti_password/ganti",
             type: "POST",
             data: {
-                'konten' : konten,
-                'judul'  : judul
+                'password'  : password,
+                'password1' : password1,
+                'password2' : password2,
+                'username'  : username
             },
             success: function(a) {
                 if(a == 'success') {
                     setTimeout(function() {
-                         $("#simpan").html("<i class='fa fa-check'></i> <b>Simpan Sukses</b>");}, 1200);
+                         $("#simpan").html("<i class='fa fa-check'></i> <b>Ganti Password Sukses</b>");}, 1200);
 
                     setTimeout(function() {
-                        window.location.href = '<?php echo base_url(); ?>admin/visi_misi/view?status=success&token=<?php echo rand(1,2) ?>'; }, 2500);
+                        window.location.href = '<?php echo base_url(); ?>admin/ganti_password?status=success&token=<?php echo rand(1,2) ?>'; }, 2500);
                 } else {
                     alert(a);
                     location.reload();
@@ -471,12 +489,6 @@ $("#simpan").on("click", function() {
     }
 });
 
-</script>
-<script>
-  $(function () {
-    CKEDITOR.replace('konten');
-    CKEDITOR.config.height = 500;
-  });
 </script>
 </body>
 </html>

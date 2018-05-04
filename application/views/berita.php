@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <title>Visi & Misi - Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya UII</title>
+    <title>Berita - Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya UII</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>images/logo/favicon.jpg">
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="<?php echo substr(strip_tags($data->konten),0,190); ?>" />
+    <meta name="description" content="Daftar Berita & Info Terbaru Situs Resmi Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya Universitas Islam Indonesia #thinksmart #workhard." />
     <meta name="author" content="LEM FPSB UII"/>
     <meta content="document" name="resource-type"/>
     <meta content="all" name="audience"/>
@@ -98,25 +98,30 @@
         </div>
     </nav>
 
-    <div class="main main-raised">
+    <div class="main main-raised post-page">
         <div class="container">
-            <div class="section text-center">
+            <div class="section">
                 <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto">
-                        <h2 class="title"></h2>
+                    <div class="col-md-12 ml-auto mr-auto">
+                        <h3 class="title">Daftar Berita</h3>
                     </div>
                 </div>
-
-                <div class="py-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <article class="left">
-                                    <?php echo $data->konten; ?>
-                                </article>
-                            </div>
+                <div class="row">
+                   <div class="col-md-12">
+                        <?php if(!empty($record)):?>
+									<?php foreach($record as $row): ?>
+                        <div id="article">
+                        <a href="<?php echo base_url()?>artikel/<?php echo $row['slug']?>"><h4><?php echo $row['judul'];?></h4></a>
+                        <p><?php echo strip_tags(substr($row['konten'],0,50)); ?> […]</p>
+                         <p class="small pull-left" ><span class="fa fa-calendar"></span> <?php echo date('d M Y', strtotime($row['created_at'])); ?></p><p class="small" >&nbsp;&nbsp;&nbsp;<span class="fa fa-clock-o"></span> <?php echo date('H:i', strtotime($row['created_at'])); ?> </p>
+                        <hr/>
                         </div>
-                    </div>
+                        <?php endforeach;?>
+								<?php endif;?>
+                        </div>
+                        <ul class="pagination pagination-primary">
+                    <?php echo $pagination ;?>
+                </ul>
                 </div>
             </div>
         </div>

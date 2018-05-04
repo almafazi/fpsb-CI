@@ -17,6 +17,18 @@ class Admin_model extends CI_Model
         return false;
     }
 
+    public function updatePassword($data)
+    {
+        return $this->db->update('admin', $data);
+    }
+
+    public function getCurrentUsername()
+    {
+        $query = $this->db->get('admin');
+        $ret = $query->row();
+        return $ret->username;
+    }
+
     public function is_LoggedIn()
     {
         $this->load->library('session');
@@ -52,6 +64,21 @@ class Admin_model extends CI_Model
             return NULL;
     }
 
+    public function getRowBySlug($slug, $table) {
+            $data = NULL;
+
+            $this->db->select('*')
+            ->from($table)
+            ->where('slug', $slug);
+
+            $query = $this->db->get();
+            if ($query->num_rows() > 0) {
+               return $query->row();
+            }
+
+            return NULL;
+    }
+
     public function getRowById($id, $table) {
             $data = NULL;
 
@@ -76,6 +103,15 @@ class Admin_model extends CI_Model
         return $result;
     }
 
+    public function getAllPost($table,$limit=0){
+        $query = $this->db->select('*')->from($table)->where('status','publish')->order_by('id',"desc")->limit($limit)->get();
+
+        $result = $query->result();
+        $query->free_result(); //freeup memory
+
+        return $result;
+    }
+
     public function updateByRole($role,$data,$table){
 		$this->db->where('role',$role);
 		$this->db->update($table,$data);
@@ -93,6 +129,10 @@ class Admin_model extends CI_Model
     public function deleteById($table,$id) {
         $this->db->where('id', $id);
         return $this->db->delete($table);
+    }
+
+    public function getLastId($table=0) {
+      return (!empty($this->db->select('id')->order_by('id',"desc")->limit(1)->get($table)->row())) ? $this->db->select('id')->order_by('id',"desc")->limit(1)->get($table)->row()->id : 0;
     }
 
 

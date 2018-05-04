@@ -17438,6 +17438,10 @@ footer .pull-center {
     }
 }
 
+.post-page {
+    top: 100px
+}
+
 @media all and (min-width: 991px) {
     .navbar .navbar-nav {
         align-items: center;

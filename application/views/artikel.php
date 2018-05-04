@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <title>Visi & Misi - Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya UII</title>
+    <title><?php echo $data->judul; ?> - LEM FPSB UII</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>images/logo/favicon.jpg">
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="<?php echo substr(strip_tags($data->konten),0,190); ?>" />
+     <meta name="description" content="<?php echo substr(strip_tags($data->konten),0,190); ?>" />
     <meta name="author" content="LEM FPSB UII"/>
     <meta content="document" name="resource-type"/>
     <meta content="all" name="audience"/>
@@ -98,23 +98,23 @@
         </div>
     </nav>
 
-    <div class="main main-raised">
+    <div class="main main-raised post-page">
         <div class="container">
-            <div class="section text-center">
+            <div class="section">
                 <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto">
-                        <h2 class="title"></h2>
+                    <div class="col-md-12 ml-auto mr-auto">
+                        <h3 class="title"><?php echo $data->judul; ?></h3>
+                    </div>
+                    <div class="col-md-12 ml-auto mr-auto">
+                        <small class="posted-on"><i class="fa fa-calendar"></i> <?php echo date('d M Y', strtotime($data->created_at)); ?></small>&nbsp;&nbsp;&nbsp;<small class="posted-on"><i class="fa fa-clock-o"></i> <?php echo date('H:i', strtotime($data->created_at)); ?></small>&nbsp;&nbsp;&nbsp;<small class="updated-on"><i class="fa fa-refresh"></i> <?php echo date('d M Y, H:i', strtotime($data->updated_at)); ?></small>
                     </div>
                 </div>
-
-                <div class="py-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
+                <div class="row">
+                   <div class="col-md-12 ml-auto mr-auto">
+                        <div class="py-5">
                                 <article class="left">
-                                    <?php echo $data->konten; ?>
+                                            <?php echo $data->konten; ?>
                                 </article>
-                            </div>
                         </div>
                     </div>
                 </div>

@@ -2,11 +2,18 @@
 <html lang="en">
 
 <head>
-    <title>LEM FPSB UII</title>
+    <title>Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya UII</title>
     <link rel="shortcut icon" href="images/logo/favicon.jpg">
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Situs Resmi Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya Universitas Islam Indonesia #thinksmart #workhard." />
+    <meta name="author" content="LEM FPSB UII"/>
+    <meta content="document" name="resource-type"/>
+    <meta content="all" name="audience"/>
+    <meta name="googlebot" content="index,follow"/>
+    <meta name="spiders" content="index,follow" />
+    <meta name="robots" content="index,follow" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/material-kit.css?v=2.0.2">
@@ -52,6 +59,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="<?php echo base_url(); ?>berita" class="nav-link">
+                             Berita
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="<?php echo base_url(); ?>informasi" class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
                              Informasi dan kotak Saran
                         </a>
@@ -94,8 +106,8 @@
                                 <div class="icon icon-info">
                                     <i class="material-icons">brightness_low</i>
                                 </div>
-                                <h4 class="info-title">Grand Theme</h4>
-                                <p>Terbinanya Mahasiswa FPSB sebagai Insan Ulil Albab, Bertanggung Jawab atas Terwujudnya Tatanan Masyarakat yang Diridloi Allah SWT.</p>
+                                <h4 class="info-title"><?php echo strip_tags($grand_theme->judul); ?></h4>
+                                <p><?php echo strip_tags($grand_theme->konten); ?></p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -103,8 +115,8 @@
                                 <div class="icon icon-success">
                                     <i class="material-icons">stars</i>
                                 </div>
-                                <h4 class="info-title">Visi</h4>
-                                <p>“Optimalisasi peran dan fungsi Lembaga Eksekutif Mahasiswa Fakultas Psikologi dan Ilmu Sosial Budaya Universitas Islam Indonesia sebagai upaya membentuk karakter mahasiswa insan ulil albab yang mampu memberikan rahmat bagi seluruh alam semesta”.</p>
+                                <h4 class="info-title"><?php echo strip_tags($visi->judul); ?></h4>
+                                <p><?php echo strip_tags($visi->konten); ?></p>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -112,8 +124,8 @@
                                 <div class="icon icon-danger">
                                     <i class="material-icons">settings_overscan</i>
                                 </div>
-                                <h4 class="info-title">Misi</h4>
-                                <p>LEM FPSB UII Periode 2017-2018 1. Mengoptimalkan peran dan fungsi lembaga kemahasiswaan. 2. Internalisasi nilai-nilai islam pada Mahasiswa FPSB UII dalam berorganisasi.... <a href="<?php echo base_url(); ?>visi_misi">Read more</a>
+                                <h4 class="info-title"><?php echo strip_tags($misi->judul); ?></h4>
+                                <p><?php echo strip_tags($misi->konten); ?>
                                 </p>
                             </div>
                         </div>
@@ -177,24 +189,14 @@
                 </div>
             <div class="row">
                 <div class="col-md-12">
+                <?php foreach($posts as $post): ?>
                 <div id="article">
-                <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. […]</p>
-                 <p class="small pull-left" ><span class="fa fa-calendar"></span> 18 Ocak 2017</p><p class="small" >&nbsp;&nbsp;&nbsp;<span class="fa fa-clock-o"></span> 18:00 </p>
+                <a href="<?php echo base_url().'artikel/'.$post->slug; ?>"><h4><?php echo $post->judul; ?></h4></a>
+                <p><?php echo strip_tags(substr($post->konten,0,50)); ?> […]</p>
+                 <p class="small pull-left" ><span class="fa fa-calendar"></span> <?php echo date('d M Y', strtotime($post->created_at)); ?></p><p class="small" >&nbsp;&nbsp;&nbsp;<span class="fa fa-clock-o"></span> <?php echo date('H:i', strtotime($post->created_at)); ?> </p>
                 <hr/>
                 </div>
-                <div id="article">
-                <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. […]</p>
-                <p class="small pull-left" ><span class="fa fa-calendar"></span> 18 Ocak 2017</p><p class="small" >&nbsp;&nbsp;&nbsp;<span class="fa fa-clock-o"></span> 18:00 </p>
-                <hr/>
-                </div>
-                <div id="article">
-                <a href="#"><h4>Lorem ipsum dolor sit amet</h4></a>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. […]</p>
-                 <p class="small pull-left" ><span class="fa fa-calendar"></span> 18 Ocak 2017<p class="small" >&nbsp;&nbsp;&nbsp;<span class="fa fa-clock-o"></span> 18:00 </p>
-                <hr/>
-                </div>
+                <?php endforeach; ?>
                 </div>
             </div>
             <div class="row">

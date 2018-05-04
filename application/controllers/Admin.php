@@ -18,6 +18,18 @@ class Admin extends CI_Controller {
 		redirect('admin/dashboard');
 	}
 
+    public function ganti_password()
+	{
+        if(!$this->admin_model->is_LoggedIn()) {
+            redirect('authorize');
+        }
+        $admin_url = base_url().'admin/dashboard';
+         $data = array(
+                    'admin_url' => $admin_url
+                );
+		$this->load->view('admin/ganti_password',$data);
+	}
+
     public function route($page='', $action='', $id='')
 	{
         if(!$this->admin_model->is_LoggedIn()) redirect('authorize');
@@ -38,10 +50,21 @@ class Admin extends CI_Controller {
                     );
                     $this->load->view('admin/'.$page.'/'.$action, $data);
             elseif($action=='save'):
+                function slug($name) {
+                    $name=preg_replace('~[^\p{M}\w]+~u', '-', $name);
+                    if($name[0] == '-'){$name = ltrim($name, '-');}
+                    $name=strtolower($name);
+                    $name=urlencode($name);
+                    $name = preg_replace('/-$/', '', $name);
+                    return $name;
+                }
+                $status = $this->input->post('status');
+                if ($this->input->post('status') == 'on') $status = 'publish';
                 $insert = array(
                     'judul' => $this->input->post('judul'),
                     'konten'=> $this->input->post('konten'),
-                    'status'=> $this->input->post('status')
+                    'status'=> $status,
+                    'slug'  => slug($this->input->post('judul')).'-'.($this->admin_model->getLastId('berita')+1)
                 );
                 $this->admin_model->insert($page,$insert);
                 echo 'success';
@@ -89,6 +112,35 @@ class Admin extends CI_Controller {
                     'konten'=> $this->input->post('konten')
                 );
                 $this->admin_model->updateByRole($page,$update,'page');
+                echo 'success';
+
+            elseif ($action=='ganti'):
+
+                $current = $this->admin_model->getCurrentUsername();
+
+                if(!$this->admin_model->checkPassword($current, $this->input->post('password'))) {
+                    echo 'Password Sekarang Salah.';
+                    return false; die();
+                }
+
+                if($this->input->post('password1') != $this->input->post('password2')){
+                    echo 'Password Baru Tidak Cocok.';
+                    return false; die();
+                }
+
+                if(!empty($this->input->post('username'))) {
+                    $update = array(
+                        'password' =>  password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+                        'username' => $this->input->post('username')
+                    );
+                    $this->admin_model->updatePassword($update);
+                } else {
+                     $update = array(
+                        'password' =>  password_hash($this->input->post('password1'), PASSWORD_DEFAULT)
+                    );
+                    $this->admin_model->updatePassword($update);
+                }
+
                 echo 'success';
 
             endif;

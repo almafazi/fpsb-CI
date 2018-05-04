@@ -2,11 +2,18 @@
 <html lang="en">
 
 <head>
-    <title>LEM FPSB UII</title>
+    <title>Logo - Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya UII</title>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>images/logo/favicon.jpg">
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Logo - Situs Resmi Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya Universitas Islam Indonesia #thinksmart #workhard." />
+    <meta name="author" content="LEM FPSB UII"/>
+    <meta content="document" name="resource-type"/>
+    <meta content="all" name="audience"/>
+    <meta name="googlebot" content="index,follow"/>
+    <meta name="spiders" content="index,follow" />
+    <meta name="robots" content="index,follow" />
     <!-- Favicons -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
@@ -72,6 +79,11 @@
                     <li class="nav-item">
                         <a href="<?php echo base_url(); ?>pengurus" class="nav-link" href="javascript:void(0)" onclick="scrollToDownload()">
                              Profil Pengurus
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?php echo base_url(); ?>berita" class="nav-link">
+                             Berita
                         </a>
                     </li>
                     <li class="nav-item">
