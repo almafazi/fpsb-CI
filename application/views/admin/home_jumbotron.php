@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Visi | Admin Panel</title>
+  <title>Jumbotron | Admin Panel</title>
   <link rel="shortcut icon" href="<?php echo base_url(); ?>images/logo/favicon.jpg">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -142,8 +142,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?php echo base_url(); ?>admin/home_jumbotron/view"><i class="fa fa-circle-o"></i> Jumbotron</a></li>
-            <li class="active"><a href="<?php echo base_url(); ?>admin/home_visi/view"><i class="fa fa-circle-o"></i> Visi</a></li>
+            <li class="active"><a href="<?php echo base_url(); ?>admin/home_jumbotron/view"><i class="fa fa-circle-o"></i> Jumbotron</a></li>
+            <li><a href="<?php echo base_url(); ?>admin/home_visi/view"><i class="fa fa-circle-o"></i> Visi</a></li>
             <li><a href="<?php echo base_url(); ?>admin/home_misi/view"><i class="fa fa-circle-o"></i> Misi</a></li>
             <li><a href="<?php echo base_url(); ?>admin/home_grand_theme/view"><i class="fa fa-circle-o"></i> Grand Theme</a></li>
           </ul>
@@ -167,8 +167,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Visi
-        <small>Halaman Konten Visi</small>
+        Jumbotron
+        <small>Halaman Konten Jumbotron</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?php echo $admin_url; ?>"><i class="fa fa-dashboard"></i> Admin</a></li>
@@ -184,8 +184,8 @@
 
               <form id="form">
             <div class="box-header">
-              <h3 class="box-title">Visi
-                <small>Masukkan Konten Visi</small>
+              <h3 class="box-title">Jumbotron
+                <small>Masukkan Konten Jumbotron</small>
               </h3>
               <!-- tools box -->
               <div class="pull-right box-tools">
@@ -450,7 +450,7 @@ $("#simpan").on("click", function() {
         $("#simpan").html("<i class='fa fa-save'></i>  &nbsp;<b>Simpan Perubahan</b>");
     } else {
     $.ajax({
-            url: "<?php echo base_url(); ?>admin/home_visi/save",
+            url: "<?php echo base_url(); ?>admin/home_jumbotron/save",
             type: "POST",
             data: {
                 'konten' : konten,
@@ -462,7 +462,7 @@ $("#simpan").on("click", function() {
                          $("#simpan").html("<i class='fa fa-check'></i> <b>Simpan Sukses</b>");}, 1200);
 
                     setTimeout(function() {
-                        window.location.href = '<?php echo base_url(); ?>admin/home_visi/view?status=success&token=<?php echo rand(1,2) ?>'; }, 2500);
+                        window.location.href = '<?php echo base_url(); ?>admin/home_jumbotron/view?status=success&token=<?php echo rand(1,2) ?>'; }, 2500);
                 } else {
                     alert(a);
                     location.reload();

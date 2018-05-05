@@ -16,6 +16,7 @@ class Home extends CI_Controller {
             'posts' => $this->admin_model->getAllPost('berita',3),
             'visi' => $this->admin_model->getRowByRole('home_visi','page'),
             'misi' => $this->admin_model->getRowByRole('home_misi','page'),
+            'jumbotron' => $this->admin_model->getRowByRole('home_jumbotron','page'),
             'grand_theme' => $this->admin_model->getRowByRole('home_grand_theme','page')
         );
 		$this->load->view('home',$data);
