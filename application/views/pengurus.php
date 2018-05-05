@@ -135,9 +135,8 @@
             </div>
         </div>
     </div>
-  </div>
-  
 </body>
+</html>
 
 <!--   Core JS Files   -->
 <script src="<?php echo base_url(); ?>assets/js/core/jquery.min.js"></script>

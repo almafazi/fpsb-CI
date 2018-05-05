@@ -2,44 +2,23 @@
 <html lang="en">
 
 <head>
-    <title>Logo - Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya UII</title>
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>images/logo/favicon.jpg">
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="Logo - Situs Resmi Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya Universitas Islam Indonesia #thinksmart #workhard." />
-    <meta name="author" content="LEM FPSB UII"/>
-    <meta content="document" name="resource-type"/>
-    <meta content="all" name="audience"/>
-    <meta name="googlebot" content="index,follow"/>
-    <meta name="spiders" content="index,follow" />
-    <meta name="robots" content="index,follow" />
-    <!-- Favicons -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/material-kit.css?v=2.0.2">
-    <!-- Documentation extras -->
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="<?php echo base_url(); ?>assets/assets-for-demo/demo.css" rel="stylesheet" />
-    <!-- iframe removal -->
-    <style type="text/css">
-        .left {
-            text-align: left;
-        }
-
-        .right {
-            text-align: right;
-        }
-
-        .center {
-            text-align: center;
-        }
-
-        .justify {
-            text-align: justify;
-        }
-
-    </style>
+  <title>Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya UII</title>
+  <link rel="shortcut icon" href="images/logo/favicon.jpg">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="author" content="LEM FPSB UII"/>
+  <meta content="document" name="resource-type"/>
+  <meta content="all" name="audience"/>
+  <meta name="googlebot" content="index,follow"/>
+  <meta name="spiders" content="index,follow" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/material-kit.css?v=2.0.2">
+  <link href="<?php echo base_url(); ?>assets/assets-for-demo/demo.css" rel="stylesheet" />
+  <!-- fancybox -->
+  <link href="<?php echo base_url(); ?>assets/css/fancybox.css" rel="stylesheet" />
 </head>
 
 <body class="landing-page ">
@@ -125,15 +104,15 @@
                                             <div class="row">
                                                 <div class="col-md-3 col-6 p-1">
                                                     <a href="<?php echo base_url(); ?>#">
-                                      <img class="d-block img-fluid" src="<?php echo base_url(); ?>images/logo/logo.jpg"> </a>
+                                                    <a class="single_image" href="<?php echo base_url(); ?>images/logo/logo.jpg"><img class="d-block img-fluid" src="<?php echo base_url(); ?>images/logo/logo.jpg"> </a>
                                                 </div>
                                                 <div class="col-md-3 col-6 p-1">
                                                     <a href="<?php echo base_url(); ?>#">
-                                      <img class="d-block img-fluid" src="<?php echo base_url(); ?>images/logo/1.jpg"> </a>
+                                                      <a class="single_image" href="<?php echo base_url(); ?>images/logo/1.jpg"><img class="d-block img-fluid" src="<?php echo base_url(); ?>images/logo/1.jpg"> </a>
                                                 </div>
                                                 <div class="col-md-3 col-6 p-1">
                                                     <a href="<?php echo base_url(); ?>#">
-                                      <img class="d-block img-fluid" src="<?php echo base_url(); ?>images/logo/2.jpg"> </a>
+                                                      <a class="single_image" href="<?php echo base_url(); ?>images/logo/2.jpg"><img class="d-block img-fluid" src="<?php echo base_url(); ?>images/logo/2.jpg"> </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -147,3 +126,22 @@
     </div>
 </body>
 </html>
+
+<!--   Core JS Files   -->
+<script src="<?php echo base_url(); ?>assets/js/core/jquery.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/fancybox.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/core/popper.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap-material-design.js"></script>
+<!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
+<script src="<?php echo base_url(); ?>assets/js/plugins/moment.min.js"></script>
+<!--	Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+<script src="<?php echo base_url(); ?>assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+<!--	Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="<?php echo base_url(); ?>assets/js/plugins/nouislider.min.js"></script>
+<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+<script src="<?php echo base_url(); ?>assets/js/material-kit.js?v=2.0.2"></script>
+<!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
+<script src="<?php echo base_url(); ?>assets/assets-for-demo/js/material-kit-demo.js"></script>
+<script>
+$(".single_image").fancybox();
+</script>
