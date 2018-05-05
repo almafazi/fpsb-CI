@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/material-kit.css?v=2.0.2">
     <link href="<?php echo base_url(); ?>assets/assets-for-demo/demo.css" rel="stylesheet" />
+    <!-- fancybox -->
+    <link href="<?php echo base_url(); ?>assets/css/fancybox.css" rel="stylesheet" />
+
 </head>
 
 <body class="landing-page ">
@@ -143,38 +146,38 @@
                 <div class="row">
                     <div class="col-md-2 col-6 p-1" style="margin-left:260px">
                         <a href="<?php echo base_url(); ?>#">
-          <img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/ketua.png"  style="padding:20px"> </a>
+                  <a class="single_image" href="<?php echo base_url(); ?>images/ketua.png"><img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/ketua.png"  style="padding:20px"></a>
                     </div>
                     <div class="col-md-2 col-6 p-1">
                         <a href="<?php echo base_url(); ?>#">
-          <img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/sekre.png"  style="padding:20px"> </a>
+                  <a class="single_image" href="<?php echo base_url(); ?>images/sekre.png"><img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/sekre.png"  style="padding:20px"></a>
                     </div>
                     <div class="col-md-2 col-6 p-1">
                         <a href="<?php echo base_url(); ?>#">
-          <img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/bendahara.png"  style="padding:20px"> </a>
+                          <a class="single_image" href="<?php echo base_url(); ?>images/bendahara.png"><img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/bendahara.png"  style="padding:20px"></a>
                     </div>
 
                 </div>
                 <div class="row">
                     <div class="col-md-2 col-6 p-1" style="margin-left:70px">
                         <a href="<?php echo base_url(); ?>#">
-          <img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/jarmedin.png"  style="padding:20px"> </a>
+                          <a class="single_image" href="<?php echo base_url(); ?>images/jarmedin.png"><img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/jarmedin.png"  style="padding:20px"></a>
                     </div>
                     <div class="col-md-2 col-6 p-1">
                         <a href="<?php echo base_url(); ?>#">
-          <img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/po.png"  style="padding:20px"> </a>
+                          <a class="single_image" href="<?php echo base_url(); ?>images/po.png"><img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/po.png"  style="padding:20px"></a>
                     </div>
                     <div class="col-md-2 col-6 p-1">
                         <a href="<?php echo base_url(); ?>#">
-          <img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/pmb.png"  style="padding:20px"> </a>
+                          <a class="single_image" href="<?php echo base_url(); ?>images/pmb.png"><img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/pmb.png"  style="padding:20px"></a>
                     </div>
                     <div class="col-md-2 col-6 p-1">
                         <a href="<?php echo base_url(); ?>#">
-          <img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/sosling.png"  style="padding:20px"> </a>
+                          <a class="single_image" href="<?php echo base_url(); ?>images/sosling.png"><img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/sosling.png"  style="padding:20px"></a>
                     </div>
                     <div class="col-md-2 col-6 p-1">
                         <a href="<?php echo base_url(); ?>#">
-          <img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/kd.png"  style="padding:20px"> </a>
+                          <a class="single_image" href="<?php echo base_url(); ?>images/kd.png"><img class="" width="220px" height="220px" src="<?php echo base_url(); ?>images/kd.png"  style="padding:20px"></a>
                     </div>
 
                 </div>
@@ -254,6 +257,7 @@
     </footer>
     <!--   Core JS Files   -->
     <script src="<?php echo base_url(); ?>assets/js/core/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/fancybox.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/core/popper.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/bootstrap-material-design.js"></script>
     <!--  Plugin for Date Time Picker and Full Calendar Plugin  -->
@@ -266,6 +270,9 @@
     <script src="<?php echo base_url(); ?>assets/js/material-kit.js?v=2.0.2"></script>
     <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
     <script src="<?php echo base_url(); ?>assets/assets-for-demo/js/material-kit-demo.js"></script>
+    <script>
+    $(".single_image").fancybox();
+    </script>
 </body>
 
 </html>
