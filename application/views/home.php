@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="Situs Resmi Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya Universitas Islam Indonesia #thinksmart #workhard." />
+    <meta name="description" content="<?php echo substr(strip_tags(preg_replace("/\r|\n/", "",$jumbotron->judul)).' - '.strip_tags(preg_replace("/\r|\n/", "",$jumbotron->konten)),0,190); ?>" />
     <meta name="author" content="LEM FPSB UII"/>
     <meta content="document" name="resource-type"/>
     <meta content="all" name="audience"/>
@@ -77,8 +77,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h1 class="title">Eksekutif Progresif</h1>
-                    <h4>Situs Resmi Lembaga Eksekutif Mahasiswa Fakultas Psikologi Dan Ilmu Sosial Budaya Universitas Islam Indonesia #thinksmart #workhard.</h4>
+                    <h1 class="title"><?php echo strip_tags($jumbotron->judul); ?></h1>
+                    <h4><?php echo strip_tags($jumbotron->konten); ?></h4>
                     <br>
                     <a href="<?php echo base_url(); ?>visi_misi" target="_blank" class="btn btn-danger btn-raised btn-lg">
                         <i></i> Visi dan Misi

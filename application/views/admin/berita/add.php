@@ -141,6 +141,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="<?php echo base_url(); ?>admin/home_jumbotron/view"><i class="fa fa-circle-o"></i> Jumbotron</a></li>
             <li><a href="<?php echo base_url(); ?>admin/home_visi/view"><i class="fa fa-circle-o"></i> Visi</a></li>
             <li><a href="<?php echo base_url(); ?>admin/home_misi/view"><i class="fa fa-circle-o"></i> Misi</a></li>
             <li><a href="<?php echo base_url(); ?>admin/home_grand_theme/view"><i class="fa fa-circle-o"></i> Grand Theme</a></li>
