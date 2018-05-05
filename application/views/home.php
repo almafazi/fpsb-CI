@@ -181,6 +181,7 @@
                     </div>
 
                 </div>
+
             </div>
 
         <div class="container">
@@ -242,7 +243,41 @@
                     </form>
                 </div>
             </div>
-        </div></div>
+        </div>
+        <div class="py-5 text-dark">
+     <div class="container">
+       <div class="row">
+         <div class="col-md-6 text-center align-self-center">
+           <p class="mb-5">
+             <strong>Fakultas Psikologi dan Ilmu sosial budaya</strong>
+             <br>universitas islam indonesia,
+             <br>jl. Kaliurang Km 14.5 , 55584
+             <br>
+           <div class="my-3 row">
+             <div class="col-4">
+               <a href="https://www.facebook.com" target="_blank">
+                 <i class="fa fa-3x fa-facebook"></i>
+               </a>
+             </div>
+             <div class="col-4">
+               <a href="https://twitter.com" target="_blank">
+                 <i class="fa fa-3x fa-twitter"></i>
+               </a>
+             </div>
+             <div class="col-4">
+               <a href="https://www.instagram.com" target="_blank">
+                 <i class="fa fa-3x fa-instagram"></i>
+               </a>
+             </div>
+           </div>
+         </div>
+         <div class="col-md-6 p-0">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3953.9624031659346!2d110.41196401432309!3d-7.687183894458394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1slem!5e0!3m2!1sid!2sid!4v1525540426154" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+       </div>
+     </div>
+   </div></div>
+ </div>
+
     <footer class="footer ">
         <div class="container">
             <div class="copyright pull-center">
