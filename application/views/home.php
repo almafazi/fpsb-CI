@@ -281,12 +281,7 @@
     <footer class="footer ">
         <div class="container">
             <div class="copyright pull-center">
-                &copy;
-                <script>
-                    document.write(new Date().getFullYear())
-
-                </script>, made with <i class="material-icons">favorite</i> by
-                <a href="<?php echo base_url(); ?>" target="_blank">Codenesia</a> for a better web.
+            
             </div>
         </div>
     </footer>
